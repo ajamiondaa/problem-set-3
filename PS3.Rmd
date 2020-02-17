@@ -2,7 +2,10 @@
 title: "PS3"
 author: "Soowon Jo"
 date: "2/15/2020"
-output: pdf_document
+output: 
+  pdf_document: 
+    extra_dependencies: bbm
+    latex_engine: xelatex
 ---
 
 ##Problem Set 3: Trees & Machines
@@ -23,7 +26,7 @@ library(randomForest)
 • Set seed
 • Load the data
 • Store the total number of features minus the biden feelings in object p
-• Set λ (shrinkage/learning rate) range from 0.0001 to 0.04, by 0.001
+• Set lambda (shrinkage/learning rate) range from 0.0001 to 0.04, by 0.001
 ```{r}
 set.seed(210)
 setwd("/Users/soowonjo/Desktop/MachineLearning/PB3")
@@ -32,7 +35,7 @@ p <- ncol(data[-1])
 lambda <-seq(from = .0001, to = .04, by = .001)
 ```
 
-####2. (10 points) Create a training set consisting of 75% of the observations, and a test set with all remaining obs. Note: because you will be asked to loop over multiple λ values below, these training and test sets should only be integer values corresponding with row IDs in the data. This is a little tricky, but think about it carefully. If you try to set the training and testing sets as before, you will be unable to loop below.
+####2. (10 points) Create a training set consisting of 75% of the observations, and a test set with all remaining obs. Note: because you will be asked to loop over multiple lambda values below, these training and test sets should only be integer values corresponding with row IDs in the data. This is a little tricky, but think about it carefully. If you try to set the training and testing sets as before, you will be unable to loop below.
 ```{r}
 smp_size <- floor(0.75 * nrow(data))
 
@@ -43,7 +46,7 @@ trainset <- data[train_ind, ]
 testset <- data[-train_ind, ]
 ```
 
-####3. (15 points) Create empty objects to store training and testing MSE, and then write a loop to perform boosting on the training set with 1,000 trees for the pre-defined range of values of the shrinkage parameter, λ. Then, plot the training set and test set MSE across shrinkage values.
+####3. (15 points) Create empty objects to store training and testing MSE, and then write a loop to perform boosting on the training set with 1,000 trees for the pre-defined range of values of the shrinkage parameter, lambda(λ). Then, plot the training set and test set MSE across shrinkage values.
 ```{r}
 testMSE <- vector(mode = "numeric", length = length(lambda))
 trainingMSE <- vector(mode = "numeric", length = length(lambda))
@@ -82,7 +85,7 @@ result %>%
 	labs(x = "Shrinkage Values (Lambda)", y = "MSE values")
 ```
 
-####4. (10 points) The test MSE values are insensitive to some precise value of λ as long as its small enough. Update the boosting procedure by setting λ equal to 0.01 (but still over 1000 trees). Report the test MSE and discuss the results. How do they compare?
+####4. (10 points) The test MSE values are insensitive to some precise value of lambda as long as its small enough. Update the boosting procedure by setting lambda equal to 0.01 (but still over 1000 trees). Report the test MSE and discuss the results. How do they compare?
 ```{r}
 boost.train <- gbm(biden ~.,
 	data = trainset,
@@ -107,7 +110,7 @@ result %>%
 	geom_vline(xintercept=0.01, linetype="dashed")+
 	labs(x = "Shrinkage Values (Lambda)", y = "MSE values")
 ```
-The test MSE for λ equal to 0.01 is 388.9172. Based on the plot above, the MSE appears roughly the same as λ increases. When the value of λ is smaller than 0.01, the models have much larger test MSEs, which means that the model test MSE is insensitive to shrinkage values once they are larger than 0.01.
+The test MSE for lambda equal to 0.01 is 388.9172. Based on the plot above, the MSE appears roughly the same as lambda increases. When the value of lambda is smaller than 0.01, the models have much larger test MSEs, which means that the model test MSE is insensitive to shrinkage values once they are larger than 0.01.
 
 ####5. (10 points) Now apply bagging to the training set. What is the test set MSE for this approach?
 ```{r}
@@ -140,6 +143,7 @@ lm.test.mse
 ```
 
 ####8. (5 points) Compare test errors across all fits. Discuss which approach generally fits best and how you concluded this.
+
 The boosting approach results in the lowest MSE across all fits (388.9172) meaning that this approach fits best. The test MSEs received from the boosting and linear regression approaches were similar around 390. The fit with the bagging approach with a lambda parameter of at least 0.01, on the other hand, has the largest test error (451.3808) making it the worst fit of all methods. The bagging approach has an "mtry" values set to p = 5. The mtry value in the bagging approach is larger than that in the randomForest function (p/3). When comparing the error values of both randomforest and bagging approaches, this implies that an increased mtry value results in an increased mean squared error. 
 
 ### Support Vector Machines
