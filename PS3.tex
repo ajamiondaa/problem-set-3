@@ -1,0 +1,617 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={PS3},
+            pdfauthor={Soowon Jo},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{PS3}
+\author{Soowon Jo}
+\date{2/15/2020}
+
+\begin{document}
+\maketitle
+
+\#\#Problem Set 3: Trees \& Machines
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{verbatim}
+## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+\end{verbatim}
+
+\begin{verbatim}
+## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
+## ✓ tibble  2.1.3     ✓ stringr 1.4.0
+## ✓ tidyr   1.0.0     ✓ forcats 0.4.0
+## ✓ readr   1.3.1
+\end{verbatim}
+
+\begin{verbatim}
+## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'caret'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:purrr':
+## 
+##     lift
+\end{verbatim}
+
+\begin{verbatim}
+## Loaded gbm 2.1.5
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'tree':
+##   method     from
+##   print.tree cli
+\end{verbatim}
+
+\begin{verbatim}
+## randomForest 4.6-14
+\end{verbatim}
+
+\begin{verbatim}
+## Type rfNews() to see new features/changes/bug fixes.
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'randomForest'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:ggplot2':
+## 
+##     margin
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     combine
+\end{verbatim}
+
+\hypertarget{decision-trees}{%
+\subsubsection{Decision Trees}\label{decision-trees}}
+
+\#\#\#\#1. Set up the data and store some things for later use: • Set
+seed • Load the data • Store the total number of features minus the
+biden feelings in object p • Set λ (shrinkage/learning rate) range from
+0.0001 to 0.04, by 0.001
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{210}\NormalTok{)}
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"/Users/soowonjo/Desktop/MachineLearning/PB3"}\NormalTok{)}
+\NormalTok{data =}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"nes2008.csv"}\NormalTok{)}
+\NormalTok{p <-}\StringTok{ }\KeywordTok{ncol}\NormalTok{(data[}\OperatorTok{-}\DecValTok{1}\NormalTok{]) }
+\NormalTok{lambda <-}\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from =} \FloatTok{.0001}\NormalTok{, }\DataTypeTok{to =} \FloatTok{.04}\NormalTok{, }\DataTypeTok{by =} \FloatTok{.001}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#\#\#2. (10 points) Create a training set consisting of 75\% of the
+observations, and a test set with all remaining obs. Note: because you
+will be asked to loop over multiple λ values below, these training and
+test sets should only be integer values corresponding with row IDs in
+the data. This is a little tricky, but think about it carefully. If you
+try to set the training and testing sets as before, you will be unable
+to loop below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{smp_size <-}\StringTok{ }\KeywordTok{floor}\NormalTok{(}\FloatTok{0.75} \OperatorTok{*}\StringTok{ }\KeywordTok{nrow}\NormalTok{(data))}
+
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{110}\NormalTok{)}
+\NormalTok{train_ind <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\KeywordTok{seq_len}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(data)), }\DataTypeTok{size =}\NormalTok{ smp_size)}
+
+\NormalTok{trainset <-}\StringTok{ }\NormalTok{data[train_ind, ]}
+\NormalTok{testset <-}\StringTok{ }\NormalTok{data[}\OperatorTok{-}\NormalTok{train_ind, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#\#\#3. (15 points) Create empty objects to store training and
+testing MSE, and then write a loop to perform boosting on the training
+set with 1,000 trees for the pre-defined range of values of the
+shrinkage parameter, λ. Then, plot the training set and test set MSE
+across shrinkage values.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{testMSE <-}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\DataTypeTok{mode =} \StringTok{"numeric"}\NormalTok{, }\DataTypeTok{length =} \KeywordTok{length}\NormalTok{(lambda))}
+\NormalTok{trainingMSE <-}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\DataTypeTok{mode =} \StringTok{"numeric"}\NormalTok{, }\DataTypeTok{length =} \KeywordTok{length}\NormalTok{(lambda))}
+
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \KeywordTok{seq_along}\NormalTok{(lambda)) \{}
+\CommentTok{# boosting training set}
+\NormalTok{boost.train <-}\StringTok{ }\KeywordTok{gbm}\NormalTok{(biden }\OperatorTok{~}\NormalTok{.,}
+    \DataTypeTok{data =}\NormalTok{ trainset,}
+    \DataTypeTok{distribution =} \StringTok{"gaussian"}\NormalTok{,}
+    \DataTypeTok{n.trees =} \DecValTok{1000}\NormalTok{,}
+    \DataTypeTok{shrinkage =}\NormalTok{ lambda[i],}
+    \DataTypeTok{interaction.depth =} \DecValTok{4}\NormalTok{)}
+
+\NormalTok{training.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(boost.train, }\DataTypeTok{newdata =}\NormalTok{ trainset, }\DataTypeTok{n.trees =} \DecValTok{1000}\NormalTok{)}
+\NormalTok{training.mse <-}\StringTok{ }\NormalTok{Metrics}\OperatorTok{::}\KeywordTok{mse}\NormalTok{(training.pred, trainset}\OperatorTok{$}\NormalTok{biden)}
+
+\CommentTok{# making prediction on the test set}
+\NormalTok{test.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(boost.train, }\DataTypeTok{newdata =}\NormalTok{ testset, }\DataTypeTok{n.trees =} \DecValTok{1000}\NormalTok{)}
+\NormalTok{test.mse <-}\StringTok{ }\NormalTok{Metrics}\OperatorTok{::}\KeywordTok{mse}\NormalTok{(test.pred, testset}\OperatorTok{$}\NormalTok{biden) }
+
+\CommentTok{# extract MSE and lambda values}
+\NormalTok{trainingMSE[i] <-}\StringTok{ }\NormalTok{training.mse}
+\NormalTok{testMSE[i] <-}\StringTok{ }\NormalTok{test.mse}
+
+\NormalTok{result <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(lambda, trainingMSE, testMSE)}
+\NormalTok{result <-}\StringTok{ }\NormalTok{result }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{as.tibble}\NormalTok{()}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: `as.tibble()` is deprecated, use `as_tibble()` (but mind the new semantics).
+## This warning is displayed once per session.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{result }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ lambda)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ trainingMSE, }\DataTypeTok{color =} \StringTok{"Training Set"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ testMSE, }\DataTypeTok{color =} \StringTok{"Test Set"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ trainingMSE, }\DataTypeTok{color =} \StringTok{"Training Set"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ testMSE, }\DataTypeTok{color =} \StringTok{"Test Set"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Shrinkage Values (Lambda)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"MSE values"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PS3_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\#\#\#\#4. (10 points) The test MSE values are insensitive to some
+precise value of λ as long as its small enough. Update the boosting
+procedure by setting λ equal to 0.01 (but still over 1000 trees). Report
+the test MSE and discuss the results. How do they compare?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{boost.train <-}\StringTok{ }\KeywordTok{gbm}\NormalTok{(biden }\OperatorTok{~}\NormalTok{.,}
+    \DataTypeTok{data =}\NormalTok{ trainset,}
+    \DataTypeTok{distribution =} \StringTok{"gaussian"}\NormalTok{,}
+    \DataTypeTok{n.trees =} \DecValTok{1000}\NormalTok{,}
+    \DataTypeTok{shrinkage =} \FloatTok{0.01}\NormalTok{,}
+    \DataTypeTok{interaction.depth =} \DecValTok{4}\NormalTok{)}
+
+\CommentTok{# making prediction on the test set}
+\NormalTok{test.pred_new <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(boost.train, }\DataTypeTok{newdata =}\NormalTok{ testset, }\DataTypeTok{n.trees =} \DecValTok{1000}\NormalTok{)}
+\NormalTok{test.mse_new <-}\StringTok{ }\NormalTok{Metrics}\OperatorTok{::}\KeywordTok{mse}\NormalTok{(test.pred_new, testset}\OperatorTok{$}\NormalTok{biden) }
+
+\CommentTok{# report the test MSE}
+\NormalTok{test.mse_new}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 388.9172
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{result }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ lambda)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ trainingMSE, }\DataTypeTok{color =} \StringTok{"Training Set"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ testMSE, }\DataTypeTok{color =} \StringTok{"Test Set"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ trainingMSE, }\DataTypeTok{color =} \StringTok{"Training Set"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ testMSE, }\DataTypeTok{color =} \StringTok{"Test Set"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_vline}\NormalTok{(}\DataTypeTok{xintercept=}\FloatTok{0.01}\NormalTok{, }\DataTypeTok{linetype=}\StringTok{"dashed"}\NormalTok{)}\OperatorTok{+}
+\StringTok{    }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Shrinkage Values (Lambda)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"MSE values"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PS3_files/figure-latex/unnamed-chunk-5-1.pdf} The test
+MSE for λ equal to 0.01 is 388.9172. Based on the plot above, the MSE
+appears roughly the same as λ increases. When the value of λ is smaller
+than 0.01, the models have much larger test MSEs, which means that the
+model test MSE is insensitive to shrinkage values once they are larger
+than 0.01.
+
+\#\#\#\#5. (10 points) Now apply bagging to the training set. What is
+the test set MSE for this approach?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bagging <-}\StringTok{ }\KeywordTok{randomForest}\NormalTok{(biden }\OperatorTok{~}\StringTok{ }\NormalTok{.,}
+    \DataTypeTok{data =}\NormalTok{ trainset, }
+    \DataTypeTok{mtry =}\NormalTok{ p) }
+
+\NormalTok{bagging.test.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(bagging, }\DataTypeTok{newdata =}\NormalTok{ testset)}
+\NormalTok{bagging.test.mse <-}\StringTok{ }\NormalTok{Metrics}\OperatorTok{::}\KeywordTok{mse}\NormalTok{(bagging.test.pred, testset}\OperatorTok{$}\NormalTok{biden)}
+\NormalTok{bagging.test.mse}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 451.3808
+\end{verbatim}
+
+\#\#\#\#6. (10 points) Now apply random forest to the training set. What
+is the test set MSE for this approach?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rf <-}\StringTok{ }\KeywordTok{randomForest}\NormalTok{(biden }\OperatorTok{~}\StringTok{ }\NormalTok{., }
+                \DataTypeTok{data =}\NormalTok{ trainset, }
+                \DataTypeTok{importance =} \OtherTok{TRUE}\NormalTok{) }
+
+\NormalTok{rf.test.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(rf, }\DataTypeTok{newdata =}\NormalTok{ testset)}
+\NormalTok{rf.test.mse <-}\StringTok{ }\NormalTok{Metrics}\OperatorTok{::}\KeywordTok{mse}\NormalTok{(rf.test.pred, testset}\OperatorTok{$}\NormalTok{biden)}
+\NormalTok{rf.test.mse}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 402.4014
+\end{verbatim}
+
+\#\#\#\#7. (5 points) Now apply linear regression to the training set.
+What is the test set MSE for this approach?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lm_train <-}\StringTok{ }\KeywordTok{glm}\NormalTok{(biden }\OperatorTok{~}\StringTok{ }\NormalTok{.,}\DataTypeTok{data =}\NormalTok{ trainset)}
+\NormalTok{lm.test.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(lm_train, }\DataTypeTok{newdata =}\NormalTok{ testset)}
+\NormalTok{lm.test.mse <-}\StringTok{ }\NormalTok{Metrics}\OperatorTok{::}\KeywordTok{mse}\NormalTok{(lm.test.pred, testset}\OperatorTok{$}\NormalTok{biden)}
+\NormalTok{lm.test.mse}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 392.3925
+\end{verbatim}
+
+\#\#\#\#8. (5 points) Compare test errors across all fits. Discuss which
+approach generally fits best and how you concluded this. The boosting
+approach results in the lowest MSE across all fits (388.9172) meaning
+that this approach fits best. The test MSEs received from the boosting
+and linear regression approaches were similar around 390. The fit with
+the bagging approach with a lambda parameter of at least 0.01, on the
+other hand, has the largest test error (451.3808) making it the worst
+fit of all methods. The bagging approach has an ``mtry'' values set to p
+= 5. The mtry value in the bagging approach is larger than that in the
+randomForest function (p/3). When comparing the error values of both
+randomforest and bagging approaches, this implies that an increased mtry
+value results in an increased mean squared error.
+
+\hypertarget{support-vector-machines}{%
+\subsubsection{Support Vector Machines}\label{support-vector-machines}}
+
+\#\#\#\#1. Create a training set with a random sample of size 800, and a
+test set containing the remaining observations.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\NormalTok{train=}\KeywordTok{sample}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(OJ),}\DecValTok{800}\NormalTok{)}
+\NormalTok{OJ.train =}\StringTok{ }\NormalTok{OJ[train,]}
+\NormalTok{OJ.test =}\StringTok{ }\NormalTok{OJ[}\OperatorTok{-}\NormalTok{train,]}
+\end{Highlighting}
+\end{Shaded}
+
+\#\#\#\#2. (10 points) Fit a support vector classifier to the training
+data with cost = 0.01, with Purchase as the response and all other
+features as predictors. Discuss the results.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{svmfit <-}\StringTok{ }\KeywordTok{svm}\NormalTok{(Purchase }\OperatorTok{~}\StringTok{ }\NormalTok{., }
+             \DataTypeTok{data =}\NormalTok{ OJ.train, }
+             \DataTypeTok{kernel =} \StringTok{"linear"}\NormalTok{, }
+             \DataTypeTok{cost =} \FloatTok{0.01}\NormalTok{, }
+             \DataTypeTok{scale =} \OtherTok{FALSE}\NormalTok{)}
+
+\KeywordTok{summary}\NormalTok{(svmfit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## svm(formula = Purchase ~ ., data = OJ.train, kernel = "linear", cost = 0.01, 
+##     scale = FALSE)
+## 
+## 
+## Parameters:
+##    SVM-Type:  C-classification 
+##  SVM-Kernel:  linear 
+##        cost:  0.01 
+## 
+## Number of Support Vectors:  623
+## 
+##  ( 312 311 )
+## 
+## 
+## Number of Classes:  2 
+## 
+## Levels: 
+##  CH MM
+\end{verbatim}
+
+The result indicates that more support vectors (623) are required to get
+the proper separation of data when the data is enlarged into a higher
+dimensional space. Moreover, it requires two classes and levels.
+
+\#\#\#\#3. (5 points) Display the confusion matrix for the
+classification solution, and also report both the training and test set
+error rates.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Generate predicted values for train and test sets}
+\NormalTok{Purchase1 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(svmfit, OJ.train)}
+\NormalTok{Purchase2 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(svmfit, OJ.test)}
+
+\CommentTok{#Confusion matrix for training set predictions}
+\KeywordTok{table}\NormalTok{(}\DataTypeTok{predicted =}\NormalTok{ Purchase1, }
+      \DataTypeTok{true =}\NormalTok{ OJ.train}\OperatorTok{$}\NormalTok{Purchase)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          true
+## predicted  CH  MM
+##        CH 466 177
+##        MM  22 135
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Error rate, calculated as misclassified/total}
+\NormalTok{(}\DecValTok{177}\OperatorTok{+}\DecValTok{22}\NormalTok{)}\OperatorTok{/}\DecValTok{800}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.24875
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Confusion matrix for test set predictions}
+\KeywordTok{table}\NormalTok{(}\DataTypeTok{predicted =}\NormalTok{ Purchase2, }
+      \DataTypeTok{true =}\NormalTok{ OJ.test}\OperatorTok{$}\NormalTok{Purchase)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          true
+## predicted  CH  MM
+##        CH 157  63
+##        MM   8  42
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Error rate, calculated as misclassified/total}
+\NormalTok{(}\DecValTok{63}\OperatorTok{+}\DecValTok{8}\NormalTok{)}\OperatorTok{/}\DecValTok{270}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.262963
+\end{verbatim}
+
+\#\#\#\#4. (10 points) Find an optimal cost in the range of 0.01 to 1000
+(specific range values can vary; there is no set vector of range values
+you must use).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tune_c <-}\StringTok{ }\KeywordTok{tune}\NormalTok{(svm, }
+\NormalTok{                Purchase }\OperatorTok{~}\StringTok{ }\NormalTok{., }
+                \DataTypeTok{data =}\NormalTok{ OJ.train, }
+                \DataTypeTok{kernel =} \StringTok{"linear"}\NormalTok{, }
+                \DataTypeTok{ranges =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{cost =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.01}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{1000}\NormalTok{)))}
+
+\CommentTok{#Subset best model and look at summary to identify its cost value}
+\NormalTok{tuned_model <-}\StringTok{ }\NormalTok{tune_c}\OperatorTok{$}\NormalTok{best.model}
+\KeywordTok{summary}\NormalTok{(tuned_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## best.tune(method = svm, train.x = Purchase ~ ., data = OJ.train, 
+##     ranges = list(cost = c(0.01, 0.1, 1, 10, 100, 1000)), kernel = "linear")
+## 
+## 
+## Parameters:
+##    SVM-Type:  C-classification 
+##  SVM-Kernel:  linear 
+##        cost:  1 
+## 
+## Number of Support Vectors:  325
+## 
+##  ( 163 162 )
+## 
+## 
+## Number of Classes:  2 
+## 
+## Levels: 
+##  CH MM
+\end{verbatim}
+
+\#\#\#\#5. (10 points) Compute the optimal training and test error rates
+using this new value for cost. Display the confusion matrix for the
+classification solution, and also report both the training and test set
+error rates. How do the error rates compare? Discuss the results in
+substantive terms (e.g., how well did your optimally tuned classifer
+perform? etc.)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Generate predicted values for train and test sets}
+\NormalTok{Purchase3 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(tuned_model, OJ.train)}
+\NormalTok{Purchase4 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(tuned_model, OJ.test)}
+
+\CommentTok{#Confusion matrix for training set predictions}
+\NormalTok{t1 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(}\DataTypeTok{predicted =}\NormalTok{ Purchase3, }
+      \DataTypeTok{true =}\NormalTok{ OJ.train}\OperatorTok{$}\NormalTok{Purchase)}
+
+\CommentTok{#Error rate, calculated as misclassified / total}
+\NormalTok{(t1[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{]}\OperatorTok{+}\NormalTok{t1[}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{])}\OperatorTok{/}\DecValTok{800}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1575
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Confusion matrix for test set predictions}
+\NormalTok{t2 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(}\DataTypeTok{predicted =}\NormalTok{ Purchase4, }
+      \DataTypeTok{true =}\NormalTok{ OJ.test}\OperatorTok{$}\NormalTok{Purchase)}
+
+\CommentTok{#Error rate, calculated as misclassified / total}
+\NormalTok{(t2[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{]}\OperatorTok{+}\NormalTok{t2[}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{])}\OperatorTok{/}\DecValTok{270}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1814815
+\end{verbatim}
+
+The optimal test error rates for training and test sets are 0.1575 and
+0.1815, respectively for the tuned model. The test error rates for
+training and test sets are 0.2487 and 0.2629, respectively for the
+original model. This result shows that the tuned model has lower test
+error rates for all sets than the original model. This would have been
+possible since the tuning function determines the cost value which
+results in the most accurate classifier.
+
+\end{document}
