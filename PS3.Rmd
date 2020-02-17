@@ -46,7 +46,7 @@ trainset <- data[train_ind, ]
 testset <- data[-train_ind, ]
 ```
 
-####3. (15 points) Create empty objects to store training and testing MSE, and then write a loop to perform boosting on the training set with 1,000 trees for the pre-defined range of values of the shrinkage parameter, lambda(λ). Then, plot the training set and test set MSE across shrinkage values.
+####3. (15 points) Create empty objects to store training and testing MSE, and then write a loop to perform boosting on the training set with 1,000 trees for the pre-defined range of values of the shrinkage parameter, lambda. Then, plot the training set and test set MSE across shrinkage values.
 ```{r}
 testMSE <- vector(mode = "numeric", length = length(lambda))
 trainingMSE <- vector(mode = "numeric", length = length(lambda))
